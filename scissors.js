@@ -134,12 +134,11 @@ Command.prototype.reverse = function (min, max) {
 
 Command.prototype.rotate = function (amount) {
   var cmd = this._copy();
-  this.buffer();
   var amount = Number(amount) % 360, dir = null;
   switch (amount) {
-    case 90: case -270: dir = 'R'; break;
-    case 180: case -180: dir = 'D'; break;
-    case -90: case 270: dir = 'L'; break;
+    case 90: case -270: dir = 'right'; break;
+    case 180: case -180: dir = 'down'; break;
+    case -90: case 270: dir = 'left'; break;
     default: return this;
   }
   return cmd._push([
